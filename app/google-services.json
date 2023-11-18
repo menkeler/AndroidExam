@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "610016548649",
+    "project_id": "t2023it2-caragueno-s-place",
+    "storage_bucket": "t2023it2-caragueno-s-place.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:610016548649:android:a42bd156a82025ff5cc938",
+        "android_client_info": {
+          "package_name": "com.MendozaTan.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "610016548649-ava4s2trgl44tvpfa9m01b2m43qjdd96.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuHtfbOsW2kIuCy1QT6-_Izu3jN-QeU_4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "610016548649-ava4s2trgl44tvpfa9m01b2m43qjdd96.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
