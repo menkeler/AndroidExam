@@ -13,11 +13,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.smarteist.autoimageslider.SliderView
@@ -27,6 +24,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var _btnLogout: Button
     val db = Firebase.firestore
     lateinit var recyclerView: RecyclerView
+    lateinit var _btnAdd: Button
+
     data class Product(
         val id: String,
         val timestamp: String,
@@ -47,6 +46,12 @@ class MainActivity : AppCompatActivity() {
             Firebase.auth.signOut()
             finish()
         }
+        _btnAdd = findViewById(R.id.btnAdd)
+        _btnAdd.setOnClickListener {
+            var intent =Intent(this,AddItemActivity::class.java)
+            startActivity(intent)
+        }
+
 
         val productList = mutableListOf<Product>()
 
@@ -78,13 +83,11 @@ class MainActivity : AppCompatActivity() {
 
                     productList.add(product)
                 }
-
                 val productAdapter = ProductAdapter(productList) { product ->
                     val intent = Intent(this, ProductViewActivity::class.java).apply {
                         putExtra(ProductViewActivity.EXTRA_PRODUCT_ID, product.id)
                     }
                     startActivity(intent)
-
                 }
                 recyclerView.adapter = productAdapter
             }
@@ -92,22 +95,18 @@ class MainActivity : AppCompatActivity() {
                 Log.d(TAG, "Error getting documents: ", exception)
             }
     }
+
     class ImagesAdapter(private val context: Context, private val imageUrls: List<String>) :
         SliderViewAdapter<ImagesAdapter.SliderAdapterVH>() {
-
         class SliderAdapterVH(itemView: View) : SliderViewAdapter.ViewHolder(itemView) {
             val imageView: ImageView = itemView.findViewById(R.id.imageViewProduct)
         }
-
         override fun onCreateViewHolder(parent: ViewGroup): SliderAdapterVH {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.itemimage, parent, false)
             return SliderAdapterVH(view)
         }
-
         override fun onBindViewHolder(viewHolder: SliderAdapterVH, position: Int) {
             val imageUrl = imageUrls[position]
-
-            // Load image using Glide or any other image loading library
             Glide.with(viewHolder.itemView)
                 .load(imageUrl)
                 .into(viewHolder.imageView)
@@ -138,16 +137,13 @@ class MainActivity : AppCompatActivity() {
                 is ProductViewHolder -> {
                     val product = productList[position]
 
-                    // Set text for TextViews
                     holder.textViewProductName.text = product.name
                     holder.textViewProductDescription.text = product.description
                     holder.textViewProductPrice.text = "Price: $${product.price}"
 
-                    // Set up AutoImageSlider
                     val imagesAdapter = ImagesAdapter(holder.itemView.context, product.imageUrls)
                     holder.imageSlider.setSliderAdapter(imagesAdapter)
 
-                    // Set a click listener for the button
                     holder.buttonViewDetails.setOnClickListener {
                         onItemClick(product)
                     }

@@ -12,21 +12,32 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/itemImage"
+        <Button
+            android:id="@+id/btnAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button" />
+
+        <ImageView
+            android:id="@+id/itemImage"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
             android:layout_marginEnd="8dp"
-            android:src="@android:drawable/ic_menu_gallery" />
+            android:layout_weight="3"
+            android:src="@android:drawable/ic_menu_gallery"
+            tools:srcCompat="@drawable/logo" />
 
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Logout" />
 
     </LinearLayout>
