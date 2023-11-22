@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/yellowish"
     tools:context=".RegisterActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_margin="32dp"
         android:layout_marginEnd="1dp"
         android:foregroundGravity="center"
         android:gravity="center"
@@ -27,7 +29,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="DisplayName"
+            android:hint="Display Name"
             android:inputType="text" />
 
         <EditText
@@ -54,7 +56,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="Button" />
+            android:text="Sign Up and Login" />
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -79,19 +82,13 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="center"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="center"
-            tools:srcCompat="@tools:sample/avatars" />
+        android:id="@+id/imageView2"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo2"
+        />
 
     </LinearLayout>
 

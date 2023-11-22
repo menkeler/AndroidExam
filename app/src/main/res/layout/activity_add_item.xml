@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/yellowish"
     tools:context=".AddItemActivity">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -17,31 +18,31 @@
             android:id="@+id/editTextProductName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Product Name"/>
+            android:hint="Product Name" />
 
         <EditText
             android:id="@+id/editTextProductDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Product Description"/>
+            android:hint="Product Description" />
 
         <EditText
             android:id="@+id/editTextProductPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Product Price"/>
+            android:hint="Product Price" />
 
         <Button
             android:id="@+id/btnPickImages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Upload Images"/>
+            android:text="Upload Images" />
 
         <Button
             android:id="@+id/btnAddProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Product"/>
+            android:text="Add Product" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
